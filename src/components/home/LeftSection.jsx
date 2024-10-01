@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import SelectWorld from './SelectWorld';
 
 const LeftSection = () => {
   const [isClick, setIsClick] = useState(false);
@@ -26,7 +27,7 @@ const LeftSection = () => {
       <h1>기존에 경험하지 못한<br />새로운 여행 플래너</h1>
       <p>고민만 하던 여행 계획을 <span>Trip Designers</span>를 통해 몇 분 만에 스케줄링 해보세요.</p>
       {isClick ? (
-        <div ref={searchFieldRef} id="search-field">검색 필드</div>
+        <SelectWorld ref={searchFieldRef} id="search-field" />
       ) : (
         <button onClick={(e) => {
           e.stopPropagation(); // 버튼 클릭 시 이벤트 전파 방지
