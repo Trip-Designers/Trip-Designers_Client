@@ -1,0 +1,38 @@
+.selectworld {
+  width: 100%;
+  .selectworld__input {
+    width: 85%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #b9b9b9;
+    border-radius: 20px;
+
+    input {
+      width: 100%;
+      outline: none;
+    }
+  }
+
+  .selectworld__search {
+    padding: 5px 100px;
+    text-align: end;
+    font-size: 0.9rem;
+    color: rgb(21, 99, 245);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .selectworld__items {
+    width: 85%;
+    height: 260px;
+    background-color: #f5f3f3;
+    overflow-y: auto;
+    -ms-overflow-style:none;
+    &::-webkit-scrollbar{
+      display:none;
+    }
+  }
+}

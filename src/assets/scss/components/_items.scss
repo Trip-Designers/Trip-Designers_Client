@@ -1,0 +1,23 @@
+.worldItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7px;
+  padding: 5px;
+
+  p {
+    &:first-child {
+      font-size: 1.1rem;
+      color: black;
+    }
+
+    &:last-child {
+      font-size: 0.7rem;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #eaeaea;
+  }
+}
