@@ -3,10 +3,12 @@ import Header from './Header'
 
 const Main = ({ children }) => {
   return (
-    <main>
+    <div>
       <Header />
-      {children}
-    </main>
+      <main id='main'>
+        {children}
+      </main>
+    </div>
   )
 }
 

@@ -1,12 +1,19 @@
-import React from 'react'
-import Main from '../components/layout/Main'
+import React from 'react';
+import Main from '../components/layout/Main';
+import LeftSection from '../components/home/LeftSection';
 
 const Home = () => {
+
   return (
     <Main>
-      <div>home</div>
+      <div id='home'>
+        <LeftSection />
+        <div className='home__right' style={{flex: "1"}}>
+          hello
+        </div>
+      </div>
     </Main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
