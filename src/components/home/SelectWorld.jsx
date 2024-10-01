@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import WorldItem from '../items/WorldItem';
 import { IoIosSearch } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const mockData = [
   {
@@ -43,7 +44,11 @@ const SelectWorld = forwardRef((props, ref) => {
         <IoIosSearch />
         <input type="text" placeholder='어디로 여행을 떠나시나요?'/>
       </div>
-      <div className='selectworld__search'>목록에서 찾아보기</div>
+      <div className='selectworld__search'>
+        <Link to={'/'}>
+          목록에서 찾아보기
+        </Link>
+      </div>
       <div className='selectworld__items'>
         <ul>
           {mockData.map((data) => (
