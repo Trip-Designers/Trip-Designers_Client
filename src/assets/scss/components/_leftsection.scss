@@ -1,0 +1,33 @@
+.home__left {
+  min-width: 434.7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  flex: 1;
+  h1 {
+    font-size: 3.5em;
+    font-weight: bold;
+  }
+  p {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: rgb(131, 129, 129);
+    span {
+      font-size: 0.95em;
+      color: #514e4e;
+    }
+  }
+  button {
+    padding: 25px 45px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.05em;
+    font-weight: bold;
+    transition: background-color 0.4s;
+
+    &:hover {
+      background-color: #6fd5ee;
+    }
+  }
+}
