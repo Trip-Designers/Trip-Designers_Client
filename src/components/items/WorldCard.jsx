@@ -57,7 +57,7 @@ const WorldCard = ({ data }) => {
             ))}
           </div>
         </div>
-        <Link to={'/planning/제주'}>
+        <Link to={`/planning/${data.title}`}>
             <CreateSchedule data={data} />
         </Link>
       </div>
