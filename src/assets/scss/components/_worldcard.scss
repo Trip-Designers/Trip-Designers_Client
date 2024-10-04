@@ -23,7 +23,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 300px;
+      height: 310px;
 
       h3 {
         color: #b9b9b9;
@@ -36,6 +36,14 @@
 
       .left__top__desc {
         font-size: 0.9rem;
+        height: 150px;
+        max-height: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        
       }
 
       .worldcard__left__mid {
@@ -58,6 +66,10 @@
     
     .right__top {
       height: 300px;
+
+      img {
+        max-height: 310px;
+      }
     }
 
     .right__bottom {
