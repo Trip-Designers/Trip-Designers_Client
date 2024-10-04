@@ -13,7 +13,7 @@ const Header = () => {
         <nav className='header__nav'>
           <ul>
             <li>
-              <Link to={'/'}>여행지</Link>
+              <Link to={'https://korean.visitkorea.or.kr/list/travelinfo.do?service=ms'}>여행지</Link>
             </li>
             <li>
               <Link to={'/'}>이용방법</Link>
