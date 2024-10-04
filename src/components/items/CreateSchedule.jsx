@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const CreateSchedule = () => {
+const CreateSchedule = ({ data }) => {
   return (
-    <div id='createSchedule'>일정만들기</div>
+    <Link to={`/planning/${data.title}`} id='createSchedule'>일정만들기</Link>
   )
 }
 
