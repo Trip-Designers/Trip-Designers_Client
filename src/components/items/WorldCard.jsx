@@ -8,6 +8,7 @@ import { FaPassport } from "react-icons/fa";
 import { MdElectricalServices } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa6";
 import TravelInfo from './TravelInfo';
+import { Link } from 'react-router-dom';
 
 const mockData = [
   {
@@ -56,7 +57,9 @@ const WorldCard = ({ data }) => {
             ))}
           </div>
         </div>
-        <CreateSchedule />
+        <Link to={'/planning/제주'}>
+            <CreateSchedule data={data} />
+        </Link>
       </div>
       <div className='right'>
         <div className='right__top'>
