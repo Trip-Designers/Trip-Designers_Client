@@ -1,5 +1,6 @@
 #travelinfo {
-
+  font-size: 16px;
+  width: 60px;
   .travelinfo__top {
     display: flex;
     justify-content: flex-start;
@@ -16,13 +17,13 @@
 
     P {
       &:first-child {
-        font-size: 0.7rem;
+        font-size: 0.7em;
         font-weight: bold;
         color: #b9b9b9;
       }
 
       &:last-child {
-        font-size: 0.9rem;
+        font-size: 0.9em;
       }
     }
   }
