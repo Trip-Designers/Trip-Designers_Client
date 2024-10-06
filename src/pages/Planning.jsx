@@ -8,7 +8,6 @@ const Planning = () => {
   const handleClose = () => setOpen(false);
   return (
     <Main>
-      <div>Planning</div>
       <Modal
         open={open}
       >
