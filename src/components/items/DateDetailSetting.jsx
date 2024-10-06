@@ -10,11 +10,11 @@ const DateDetailSetting = ({ onNext }) => {
         </div>
         <div>
           <span>시작시간</span>
-          <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
+          <input type="time" id="appt" name="appt" min="10:00" max="22:00" required />
         </div>
         <div>
           <span>종료시간</span>
-          <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
+          <input type="time" id="appt" name="appt" min="10:00" max="22:00" required />
         </div>
       </div>
       <button onClick={onNext}>시간 설정 완료</button>
