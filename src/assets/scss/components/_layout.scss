@@ -35,6 +35,10 @@
   margin: 0 auto;
 }
 
+.main {
+  height: 100vh !important;
+}
+
 #aside {
   position: fixed;
   top: 0;
@@ -46,6 +50,7 @@
   .aside__nav {
     width: 104px;
     .aside__img {
+      display: block;
       padding: 10px;
       img {
         width: 84px;
