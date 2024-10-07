@@ -41,7 +41,7 @@
   border-radius: 6px;
   font-weight: 900;
   text-align: center;
-  background-color: #d9d9d9;
+  background-color: #ededed;
   color:cornflowerblue;
   cursor: pointer;
   transition: all 0.3s;
@@ -53,5 +53,34 @@
     .icon svg{
       color: white;
     }
+  }
+}
+
+.btn {
+  min-width: 150px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#dateDetailSetting {
+  .dateDetailSetting__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    @include flex-center;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
   }
 }
