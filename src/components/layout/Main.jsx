@@ -8,7 +8,7 @@ const Main = ({ children }) => {
   return (
     <div>
       {param.id ? <Aside /> : <Header />}
-      <main id='main'>
+      <main id='main' className={param.id ? 'main' : ''}>
         {children}
       </main>
     </div>

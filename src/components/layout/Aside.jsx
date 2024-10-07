@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Step1DateSelection from '../Step1DateSelection';
 import Step2LocationSelection from '../Step2LocationSelection';
 import Step3AccommodationSetup from '../Step3AccommodationSetup';
+import { Link } from 'react-router-dom';
 
 const Aside = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -17,9 +18,9 @@ const Aside = () => {
     <div id='aside'>
       {/* 사이드바 - 현재 단계 표시 */}
       <aside className="aside__nav">
-        <div className='aside__img'>
+        <Link to={'/'} className='aside__img'>
           <img src="/img/Trip_Logo.png" alt="Logo" />
-        </div>
+        </Link>
         <div className='nav'>
           <ul>
             <li className={currentStep === 1 ? 'active' : ''}>Step 1<br /> 날짜 확인</li>
