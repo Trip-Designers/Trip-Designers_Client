@@ -35,7 +35,7 @@ const Home = () => {
         <div id='home'>
           <LeftSection /> 
           <div className='home__right' style={{flex: "1"}}>
-            1
+            
           </div>
         </div>
       </Main>
