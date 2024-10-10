@@ -1,6 +1,6 @@
 #home {
   height: 100%;
-  @include flex-center;
+  @include flex-start;
 
   @media screen and (max-width: 1208px) {
     font-size: 0.9rem;
