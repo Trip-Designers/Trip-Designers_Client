@@ -19,7 +19,7 @@ const Planning = () => {
       <Map
         center={{ lat: 33.5563, lng: 126.79581 }}
         style={{ width: 'calc(100% - 386px)', height: '100vh', marginLeft: '470px' }}
-        level={8}
+        level={9}
       >
         <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}></MapMarker>
       </Map>
