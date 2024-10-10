@@ -1,12 +1,10 @@
 .home__left {
   min-width: 434.7px;
-  min-height: 320.39px;
-  height: 45%;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
-  flex: 1;
   h1 {
     font-size: 3.5em;
     font-weight: bold;
@@ -21,7 +19,8 @@
     }
   }
   button {
-    padding: 25px 45px;
+    width: 180px;
+    padding: 25px;
     background-color: #000;
     color: #fff;
     font-size: 1.05em;
