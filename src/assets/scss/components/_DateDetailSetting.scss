@@ -1,14 +1,13 @@
 #dateDetailSetting {
   .dateDetailSetting__inner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 28px;
+    @include flex-start;
+    gap: 24px;
     border: 1px solid #b9b9b9;
     padding: 10px;
     border-radius: 6px;
 
     div {
+      min-width: 55px;
       display: flex;
       flex-direction: column;
       gap: 5px;
