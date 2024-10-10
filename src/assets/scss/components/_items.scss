@@ -1,7 +1,5 @@
 .worldItem {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex-start;
   gap: 7px;
   padding: 5px;
 
