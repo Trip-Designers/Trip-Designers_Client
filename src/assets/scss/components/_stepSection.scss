@@ -44,18 +44,15 @@
         transition: transform 0.3s;
       }
     }
-  }
-}
 
-#step1setting {
-  p {
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color: #b9b9b9;
-
-    strong {
-      font-weight: bold;
-      color: #7c7b7b;
+    .dateManual {
+      font-size: 0.8rem;
+      color: #b9b9b9;
+      strong {
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: #828282;
+      }
     }
   }
 }
