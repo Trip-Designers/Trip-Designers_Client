@@ -34,9 +34,6 @@ const Home = () => {
         </Modal>
         <div id='home'>
           <LeftSection /> 
-          <div className='home__right' style={{flex: "1"}}>
-            
-          </div>
         </div>
       </Main>
     </ModalContext.Provider>
