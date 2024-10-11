@@ -5,7 +5,20 @@ import { FaBed } from "react-icons/fa";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 // 컴포넌트
 import LinkSiteBtn from './items/LinkSiteBtn'
-import Step1Setting from './Step1Setting';
+import TimeSetting from './items/TimeSetting';
+// utils
+import { getTimeDateArray } from '../utils/formatDate';
+
+const mockData = 
+{
+  id: 1,
+  location: '제주',
+  startDate: "2024-10-08",
+  endDate: "2024-10-11",
+}
+
+// getTimeDateArray를 사용하여 timeDateArray 생성
+const timeDateArray = getTimeDateArray(mockData.startDate, mockData.endDate);
 
 const Step1DateSelection = ({ onNext }) => {
   const [open, setOpen] = useState(true);
@@ -14,10 +27,10 @@ const Step1DateSelection = ({ onNext }) => {
   return (
     <div id='step1'>
       <div className='step__top'>
-        <h1>제주</h1>
+        <h1>{mockData.location}</h1>
         <div className='step__info'>
-          <input type="date" /> - <input type="date" /> 
-          <div>
+          <input type="date" defaultValue={mockData.startDate} /> - <input type="date" defaultValue={mockData.endDate} /> 
+          <div >
             <LinkSiteBtn icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} url='https://www.skyscanner.co.kr/' css='btn'/>
             <LinkSiteBtn icon={<FaBed size={20} />} site={'숙소'} url='https://kr.trip.com/?locale=ko-KR&curr=KRW' css='btn' /> 
           </div>
@@ -30,7 +43,15 @@ const Step1DateSelection = ({ onNext }) => {
           <MdOutlineKeyboardArrowUp size={22} className={open ? '' : 'open'} />
         </div>
         {open ? (
-          <Step1Setting onNext={onNext} />
+          <>
+            <p className='dateManual'>여행 기간과 일정 시간을 시차를 고려해 현지시간으로 설정하세요.<br />기본 일정 시간은 <strong>오전 10시부터 오후 10시까지 총 12시간</strong>입니다.</p>
+            <div className='time__container'>
+              {timeDateArray.map((data, i) => (
+                <TimeSetting onNext={onNext} key={i} data={data} />
+              ))}
+            </div>
+            <button onClick={onNext}>시간 설정 완료</button>
+          </>
         ) : null}
       </div>
     </div>
