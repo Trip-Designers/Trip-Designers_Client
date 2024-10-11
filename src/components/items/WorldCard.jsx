@@ -1,13 +1,14 @@
 import React from 'react'
-import CreateSchedule from './CreateSchedule'
+// 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
-import LinkSiteBtn from './LinkSiteBtn';
-
 import { FaPassport } from "react-icons/fa";
 import { MdElectricalServices } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa6";
 import TravelInfo from './TravelInfo';
+// 컴포넌트
+import CreateSchedule from './CreateSchedule'
+import LinkSiteBtn from './LinkSiteBtn';
 
 const mockData = [
   {
@@ -48,7 +49,7 @@ const WorldCard = ({ data }) => {
           <div>
             <h3>JEJU</h3>
             <h1>{data.title}</h1>
-            <div className='left__top__desc'>{data.desc}가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나</div>
+            <div className='left__top__desc'>{data.desc}</div>
           </div>
           <div className='worldcard__left__mid'>
             {mockData.map((data) => (
