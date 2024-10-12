@@ -1,6 +1,7 @@
 import React from 'react'
 
 const TimeSetting = ({ data }) => {
+  //onChange 작성
   return (
     <div id='timeSetting'>
       <div className='timeSetting__inner'>
@@ -10,11 +11,11 @@ const TimeSetting = ({ data }) => {
         </div>
         <div>
           <span>시작시간</span>
-          <input type="time" id="appt" name="appt" value={data.startTime} required />
+          <input type="time" id="appt" name="appt" value={data.startTime} />
         </div>
         <div>
           <span>종료시간</span>
-          <input type="time" id="appt" name="appt" value={data.endTime} required />
+          <input type="time" id="appt" name="appt" value={data.endTime} />
         </div>
       </div>
     </div>
