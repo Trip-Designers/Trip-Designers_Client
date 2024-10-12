@@ -9,9 +9,10 @@ const Planning = () => {
   const handleClose = () => setOpen(false);
 
   const mapStyles = {
-    width: 'calc(100% - 386px)',
+    width: 'calc(100vw - 498px)',
     height: '100vh',
-    marginLeft: '470px'
+    marginLeft: '427px',
+    zIndex: 10
   }
   return (
     <Main>
