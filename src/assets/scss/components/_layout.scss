@@ -44,8 +44,9 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 470px;
+  width: 400px;
   display: flex;
+  z-index: 15;
 
   .aside__nav {
     width: 104px;
@@ -105,5 +106,6 @@
 
   .aside__info {
     width: 100%;
+    background-color: white;
   }
 }
