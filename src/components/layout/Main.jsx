@@ -14,7 +14,7 @@ const Main = ({ children }) => {
     startDate: "2024-10-08",
     endDate: "2024-10-11",
   });
-
+  
   const param = useParams();
   return (
     <DateContext.Provider value={{ mockData, setMockData, open, setOpen }}>

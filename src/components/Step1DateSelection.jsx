@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { DateContext } from './layout/Main';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -11,15 +12,9 @@ import { getTimeDateArray } from '../utils/formatDate';
 import { calculateTotalHours } from '../utils/formatTime';
 
 const Step1DateSelection = ({ onNext }) => {
+  const { mockData, setMockData } = useContext(DateContext);
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(!open);
-
-  const [mockData, setMockData] = useState({
-    id: 1,
-    location: '제주',
-    startDate: "2024-10-08",
-    endDate: "2024-10-11",
-  });
 
   // getTimeDateArray를 사용하여 timeDateArray 생성
   const [timeDateArray, setTimeDateArray] = useState(getTimeDateArray(mockData.startDate, mockData.endDate));
@@ -52,7 +47,7 @@ const Step1DateSelection = ({ onNext }) => {
       <div className='step__top'>
         <h1>{mockData.location}</h1>
         <div className='step__info'>
-          <input type="date" defaultValue={mockData.startDate} onChange={(e) => handleDateChange('startDate', e.target.value)} /> - <input type="date" defaultValue={mockData.endDate} onChange={(e) => handleDateChange('endDate', e.target.value)} /> 
+          <input type="date" value={mockData.startDate} onChange={(e) => handleDateChange('startDate', e.target.value)} /> - <input type="date" value={mockData.endDate} onChange={(e) => handleDateChange('endDate', e.target.value)} /> 
           <div >
             <LinkSiteBtn icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} url='https://www.skyscanner.co.kr/' css='btn'/>
             <LinkSiteBtn icon={<FaBed size={20} />} site={'숙소'} url='https://kr.trip.com/?locale=ko-KR&curr=KRW' css='btn' /> 
