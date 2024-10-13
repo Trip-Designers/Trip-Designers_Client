@@ -5,9 +5,10 @@ import Modal from '@mui/material/Modal';
 import { Map } from 'react-kakao-maps-sdk';
 
 const Planning = () => {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-
+  const [open, setOpen] = useState(true);
+  const closeModal = () => {
+    setOpen(!open);
+  }
   const mapStyles = {
     width: 'calc(100vw - 498px)',
     height: '100vh',
@@ -22,7 +23,7 @@ const Planning = () => {
         aria-describedby="select-date-range"
       >
         <div>
-          <DateRange />
+          <DateRange close={closeModal} />
         </div>
       </Modal>
       <Map
