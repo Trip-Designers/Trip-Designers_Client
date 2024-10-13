@@ -34,14 +34,17 @@ const Step1DateSelection = ({ onNext }) => {
   };
 
   useEffect(() => {
-    setTotalTime(calculateTotalHours(timeDateArray)); // Recalculate when timeDateArray changes
+    setTimeDateArray(getTimeDateArray(mockData.startDate, mockData.endDate));
+  }, [mockData.startDate, mockData.endDate]);
+
+  useEffect(() => {
+    setTotalTime(calculateTotalHours(timeDateArray));
   }, [timeDateArray]);
 
-  // Handle time change in TimeSetting
   const handleTimeChange = (index, field, value) => {
     const updatedArray = [...timeDateArray];
     updatedArray[index][field] = value;
-    setTimeDateArray(updatedArray); // Update the array with new time
+    setTimeDateArray(updatedArray); 
   };
 
   return (
