@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Step1DateSelection from '../Step1DateSelection';
-import Step2LocationSelection from '../Step2LocationSelection';
-import Step3AccommodationSetup from '../Step3AccommodationSetup';
+import Step2SelectTheme from '../Step2SelectTheme';
 import { Link } from 'react-router-dom';
 
 const Aside = () => {
@@ -9,7 +8,7 @@ const Aside = () => {
 
   // 다음 단계로 이동
   const handleNextStep = () => {
-    if (currentStep < 3) {
+    if (currentStep < 2) {
       setCurrentStep(prevStep => prevStep + 1);
     }
   };
@@ -24,10 +23,9 @@ const Aside = () => {
         <div className='nav'>
           <ul>
             <li className={currentStep === 1 ? 'active' : ''}>Step 1<br /> 날짜 확인</li>
-            <li className={currentStep === 2 ? 'active' : ''}>Step 2<br /> 장소 선택</li>
-            <li className={currentStep === 3 ? 'active' : ''}>Step 3<br /> 숙소 설정</li>
+            <li className={currentStep === 2 ? 'active' : ''}>Step 2<br /> 테마 선택</li>
           </ul>
-          <button onClick={handleNextStep} disabled={currentStep === 3}>다음</button>
+          <button onClick={handleNextStep}>다음</button>
         </div>
       </aside>
 
@@ -37,10 +35,7 @@ const Aside = () => {
           <Step1DateSelection onNext={handleNextStep} />
         )}
         {currentStep === 2 && (
-          <Step2LocationSelection onNext={handleNextStep} />
-        )}
-        {currentStep === 3 && (
-          <Step3AccommodationSetup />
+          <Step2SelectTheme onNext={handleNextStep} />
         )}
       </div>
     </div>
