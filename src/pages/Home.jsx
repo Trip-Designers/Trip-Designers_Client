@@ -1,8 +1,8 @@
 import React, { useState, createContext } from 'react';
 import Main from '../components/layout/Main';
-import LeftSection from '../components/home/LeftSection';
 import WorldCard from '../components/items/WorldCard';
 import Modal from '@mui/material/Modal';
+import LeftSection from './../components/items/LeftSection';
 
 export const ModalContext = createContext();
 
