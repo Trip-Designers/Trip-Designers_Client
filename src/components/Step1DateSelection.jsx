@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react'
+// utils
+import { getTimeDateArray } from '../utils/formatDate';
+import { calculateTotalHours } from '../utils/formatTime';
+// 컴포넌트
 import { DateContext } from './layout/Main';
+import LinkSiteBtn from './items/LinkSiteBtn'
+import TimeSetting from './items/TimeSetting';
+import Button from '../components/items/Button'
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
-// 컴포넌트
-import LinkSiteBtn from './items/LinkSiteBtn'
-import TimeSetting from './items/TimeSetting';
-// utils
-import { getTimeDateArray } from '../utils/formatDate';
-import { calculateTotalHours } from '../utils/formatTime';
 
 const Step1DateSelection = ({ onNext }) => {
   const { mockData, setMockData } = useContext(DateContext);
@@ -61,15 +62,17 @@ const Step1DateSelection = ({ onNext }) => {
           <MdOutlineKeyboardArrowUp size={22} className={open ? '' : 'open'} />
         </div>
         {open ? (
-          <>
-            <p className='dateManual'>여행 기간과 일정 시간을 시차를 고려해 현지시간으로 설정하세요.<br />기본 일정 시간은 <strong>오전 10시부터 오후 10시까지 총 12시간</strong>입니다.</p>
-            <div className='time__container'>
-              {timeDateArray.map((data, i) => (
-                <TimeSetting onNext={onNext} key={i} data={data} onTimeChange={(field, value) => handleTimeChange(i, field, value)} />
-              ))}
+          <div>
+            <div>
+              <p className='dateManual'>여행 기간과 일정 시간을 시차를 고려해 현지시간으로 설정하세요.<br />기본 일정 시간은 <strong>오전 10시부터 오후 10시까지 총 12시간</strong>입니다.</p>
+              <div className='time__container'>
+                {timeDateArray.map((data, i) => (
+                  <TimeSetting onNext={onNext} key={i} data={data} onTimeChange={(field, value) => handleTimeChange(i, field, value)} />
+                ))}
+              </div>
             </div>
-            <button onClick={onNext}>시간 설정 완료</button>
-          </>
+            <Button width='100%' text={'시간 설정 완료'} onClick={onNext} />
+          </div>
         ) : null}
       </div>
     </div>

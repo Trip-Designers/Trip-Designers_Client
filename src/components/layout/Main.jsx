@@ -11,8 +11,8 @@ const Main = ({ children }) => {
   const [mockData, setMockData] = useState({
     id: 1,
     location: '제주',
-    startDate: "2024-10-08",
-    endDate: "2024-10-11",
+    startDate: "",
+    endDate: "",
   });
   
   const param = useParams();
