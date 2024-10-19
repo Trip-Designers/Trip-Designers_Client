@@ -1,18 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { DateContext } from './layout/Main';
-
+import { theme } from '../mockData';
+import Button from './items/Button';
 const Step2SelectTheme = () => {
   const { mockData, setMockData } = useContext(DateContext);
-  const theme = [
-    {img: '/img/active.png', theme: "액티브"}, 
-    {img: '/img/food.png', theme: "음식"}, 
-    {img: '/img/family.png', theme: "가족"}, 
-    {img: '/img/parade.png', theme: "축제"}, 
-    {img: '/img/recreation.png', theme: "휴양"}, 
-    {img: '/img/culture.png', theme: "문화"}, 
-    {img: '/img/lover.png', theme: "연인"}, 
-    {img: '/img/friend.png', theme: "친구"}
-  ];
 
   const [selectedThemes, setSelectedThemes] = useState([]);
 
@@ -43,7 +34,7 @@ const Step2SelectTheme = () => {
               ))}
             </ul>
           </div>
-          <button>테마 선택 완료</button>
+          <Button text={'테마 선택 완료'}/>
         </div>
       </div>
     </div>
