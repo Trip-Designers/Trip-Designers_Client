@@ -1,8 +1,9 @@
 #step1 {
+  height: 100%;
   padding: 10px;
 
   .step__top {
-    width: 374px; 
+    height: 20%;
     h1 {
       font-size: 1.7rem;
       font-weight: bold;
@@ -18,7 +19,6 @@
 
       div {
         margin-top: 15px;
-        height: 40px;
         display: flex;
         justify-content: space-around;
       }
@@ -26,6 +26,7 @@
   }
 
   .step__bottom {
+    height: 75%;
     .step__bottom__desc {
       font-size: 0.9rem;
       font-weight: bold;
@@ -46,31 +47,31 @@
       }
     }
 
-    .dateManual {
-      font-size: 0.8rem;
-      color: #b9b9b9;
-      strong {
-        font-size: 0.85rem;
-        font-weight: bold;
-        color: #828282;
+    div {
+      div {
+        .dateManual {
+          font-size: 0.8rem;
+          color: #b9b9b9;
+          strong {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #828282;
+          }
+        }
+
+        .time__container {
+          max-height: 300px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin: 10px 0;
+          overflow-y: auto;
+          -ms-overflow-style:none;
+          &::-webkit-scrollbar{
+            display:none;
+          }
+        }
       }
-    }
-
-    .time__container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 10px 0;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      color: #fff;
-      background-color: #000;
-      font-weight: bold;
-      cursor: pointer;
     }
   }
 }
