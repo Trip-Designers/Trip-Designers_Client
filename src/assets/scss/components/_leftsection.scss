@@ -20,7 +20,8 @@
   }
   button {
     width: 180px;
-    padding: 25px;
+    height: 65px;
+    @include flex-center;
     background-color: #000;
     color: #fff;
     font-size: 1.05em;
