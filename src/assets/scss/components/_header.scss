@@ -1,0 +1,26 @@
+.header__inner {
+    @include flex-between;
+    .header__img {
+      img {
+        width: 84px;
+        height: 34px;
+      }
+    }
+
+    .header__nav {
+      ul {
+        @include flex-center;
+        height: 44px;
+        gap: 10px;
+
+        li {
+          padding: 0 10px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          &:hover {
+            color: aquamarine;
+          }
+        }
+      }
+    }
+  }
