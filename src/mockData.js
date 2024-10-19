@@ -3,7 +3,7 @@ import { FaPassport } from "react-icons/fa";
 import { MdElectricalServices } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa6";
 
-export const mockData = [
+export const travleInfoItems = [
   {
     id: 1,
     icon: <IoAirplaneSharp />,
