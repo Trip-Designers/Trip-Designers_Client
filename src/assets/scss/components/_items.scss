@@ -20,10 +20,8 @@
   }
 }
 
-#createSchedule {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.button {
+  @include flex-center;
   width: 200px;
   height: 60px;
   border-radius: 6px;
