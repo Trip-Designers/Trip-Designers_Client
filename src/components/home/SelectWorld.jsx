@@ -7,30 +7,30 @@ const mockData = [
   {
     id: 1,
     title: '제주',
+    title_en: "JEJU",
     desc: '대한민국',
   },
   {
     id: 2,
+    title_en: "JEJU",
     title: '하와이',
     desc: '미국',
   },
   {
     id: 3,
+    title_en: "JEJU",
     title: '괌',
     desc: '미국',
   },
   {
     id: 4,
+    title_en: "JEJU",
     title: '괌',
     desc: '미국',
   },
   {
     id: 5,
-    title: '괌',
-    desc: '미국',
-  },
-  {
-    id: 6,
+    title_en: "JEJU",
     title: '괌',
     desc: '미국',
   },

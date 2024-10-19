@@ -2,62 +2,28 @@ import React from 'react'
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
-import { FaPassport } from "react-icons/fa";
-import { MdElectricalServices } from "react-icons/md";
-import { FaRegClock } from "react-icons/fa6";
 import TravelInfo from './TravelInfo';
 // 컴포넌트
-import CreateSchedule from './CreateSchedule'
 import LinkSiteBtn from './LinkSiteBtn';
-
-const mockData = [
-  {
-    id: 1,
-    icon: <IoAirplaneSharp />,
-    travel_detail: '항공',
-    travel_type: '직항',
-    misc_info: '약 8시간'
-  },
-  {
-    id: 2,
-    icon: <FaPassport />,
-    travel_detail: '비자',
-    travel_type: '단기',
-    misc_info: '90일'
-  },
-  {
-    id: 3,
-    icon: <MdElectricalServices />,
-    travel_detail: '전압',
-    travel_type: '콘센트',
-    misc_info: '120V'
-  },
-  {
-    id: 4,
-    icon: <FaRegClock />,
-    travel_detail: '시차',
-    travel_type: '한국대비',
-    misc_info: '-19시간'
-  },
-]
+import Button from './Button';
+//데이터
+import { travleInfoItems } from '../../mockData';
 
 const WorldCard = ({ data }) => {
   return (
     <div id='worldcard'>
       <div className='left'>
         <div className='left__top'>
-          <div>
-            <h3>JEJU</h3>
-            <h1>{data.title}</h1>
-            <div className='left__top__desc'>{data.desc}</div>
-          </div>
-          <div className='worldcard__left__mid'>
-            {mockData.map((data) => (
-              <TravelInfo key={data.id} data={data} />
-            ))}
-          </div>
+          <h3>JEJU</h3>
+          <h1>{data.title}</h1>
+          <div className='left__desc'>{data.desc}</div>
         </div>
-          <CreateSchedule data={data} />  
+        <div className='left__mid'>
+          {travleInfoItems.map((data) => (
+            <TravelInfo key={data.id} data={data} />
+          ))}
+        </div>
+        <Button url={`/planning/${data.title}`} text={'일정만들기'}/>
       </div>
       <div className='right'>
         <div className='right__top'>

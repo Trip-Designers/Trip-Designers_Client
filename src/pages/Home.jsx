@@ -28,7 +28,7 @@ const Home = () => {
           onClose={handleClose}
         >
           <div>
-            <WorldCard onClose={handleClose} data={selectedData} />
+            <WorldCard data={selectedData} />
           </div>
         </Modal>
         <div id='home'>
