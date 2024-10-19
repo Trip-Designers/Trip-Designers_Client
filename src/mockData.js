@@ -66,3 +66,14 @@ export const locationData = [
     desc: '미국',
   },
 ]
+
+export const theme = [
+  {img: '/img/active.png', theme: "액티브"}, 
+  {img: '/img/food.png', theme: "음식"}, 
+  {img: '/img/family.png', theme: "가족"}, 
+  {img: '/img/parade.png', theme: "축제"}, 
+  {img: '/img/recreation.png', theme: "휴양"}, 
+  {img: '/img/culture.png', theme: "문화"}, 
+  {img: '/img/lover.png', theme: "연인"}, 
+  {img: '/img/friend.png', theme: "친구"}
+]
