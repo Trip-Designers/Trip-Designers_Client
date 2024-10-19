@@ -12,7 +12,6 @@ const Planning = () => {
   const mapStyles = {
     width: 'calc(100vw - 498px)',
     height: '100vh',
-    marginLeft: '427px',
     zIndex: 10
   }
   return (

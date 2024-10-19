@@ -19,7 +19,7 @@ const Main = ({ children }) => {
   return (
     <DateContext.Provider value={{ mockData, setMockData, open, setOpen }}>
       {param.id ? <Aside /> : <Header />}
-      <main id='main' className={param.id ? 'main' : ''}>
+      <main className={param.id ? 'nomain' : 'main'}>
         {children}
       </main>
     </DateContext.Provider>
