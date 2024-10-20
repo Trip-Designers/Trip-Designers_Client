@@ -47,6 +47,7 @@ const Step2SelectTheme = () => {
       </div>
       <Modal
       open={open}
+      onClose={handleClose}
       >
         <div>
           <ThemeModal close={handleClose} />
