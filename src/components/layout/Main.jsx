@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react'
-import { useParams } from 'react-router-dom'
 import Header from './Header'
 import Aside from './Aside';
+import { useLocation } from 'react-router-dom';
 
 export const DateContext = createContext();
 
@@ -14,12 +14,14 @@ const Main = ({ children }) => {
     startDate: "",
     endDate: "",
   });
+
+  const location = useLocation();
+  console.log(location.pathname)
   
-  const param = useParams();
   return (
     <DateContext.Provider value={{ mockData, setMockData, open, setOpen }}>
-      {param.id ? <Aside /> : <Header />}
-      <main className={param.id ? 'nomain' : 'main'}>
+      {location.pathname === '/planning' ? <Aside /> : <Header />}
+      <main className={location.pathname !== '/' ? 'nomain' : 'main'}>
         {children}
       </main>
     </DateContext.Provider>
