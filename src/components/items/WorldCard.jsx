@@ -23,7 +23,7 @@ const WorldCard = ({ data }) => {
             <TravelInfo key={data.id} data={data} />
           ))}
         </div>
-        <Button width={'200px'} url={`/planning/${data.title}`} text={'일정만들기'}/>
+        <Button width={'200px'} url={`/planning`} text={'일정만들기'}/>
       </div>
       <div className='right'>
         <div className='right__top'>
