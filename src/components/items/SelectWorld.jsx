@@ -6,11 +6,13 @@ import WorldItem from '../items/WorldItem';
 import { IoIosSearch } from "react-icons/io";
 //데이터
 import { locationData } from '../../mockData';
-
+import { useGetDestinationQuery } from '../../app/apiSlice';
 
 // forwardRef를 사용하여 ref 전달 가능하도록 설정
 const SelectWorld = forwardRef((props, ref) => {
   const [searchTerm, setSearchTerm] = useState(''); // 입력값을 저장하는 상태 추가
+  const { data } = useGetDestinationQuery();
+  console.log(data)
 
   // 입력값에 따라 데이터를 필터링
   const filteredData = locationData.filter((data) =>
