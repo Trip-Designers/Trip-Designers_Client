@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Step1DateSelection from '../Step1DateSelection';
 import Step2SelectTheme from '../Step2SelectTheme';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Aside = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const location = useLocation();
+  //i, p냐에 따라 다르게 렌더링
 
   // 다음 단계로 이동
   const handleNextStep = () => {

@@ -16,7 +16,6 @@ const Step1DateSelection = ({ onNext }) => {
   const { mockData, setMockData } = useContext(DateContext);
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(!open);
-
   // getTimeDateArray를 사용하여 timeDateArray 생성
   const [timeDateArray, setTimeDateArray] = useState(getTimeDateArray(mockData.startDate, mockData.endDate));
   const [totalTime, setTotalTime] = useState(0);
@@ -42,7 +41,6 @@ const Step1DateSelection = ({ onNext }) => {
     updatedArray[index][field] = value;
     setTimeDateArray(updatedArray); 
   };
-
   return (
     <div id='step1'>
       <div className='step__top'>

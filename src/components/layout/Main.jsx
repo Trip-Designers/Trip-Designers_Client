@@ -10,9 +10,10 @@ const Main = ({ children }) => {
 
   const [mockData, setMockData] = useState({
     id: 1,
-    location: '제주',
+    location: '',
     startDate: "",
     endDate: "",
+    theme: ""
   });
 
   const location = useLocation();
@@ -20,7 +21,7 @@ const Main = ({ children }) => {
   
   return (
     <DateContext.Provider value={{ mockData, setMockData, open, setOpen }}>
-      {location.pathname === '/planning' ? <Aside /> : <Header />}
+      {location.pathname === '/' ? <Header /> : <Aside />}
       <main className={location.pathname !== '/' ? 'nomain' : 'main'}>
         {children}
       </main>

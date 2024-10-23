@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext} from 'react'
+import { DateContext } from '../layout/Main';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -10,6 +11,14 @@ import Button from './Button';
 import { travleInfoItems } from '../../mockData';
 
 const WorldCard = ({ data }) => {
+  const { setMockData } = useContext(DateContext);
+
+  const handleLocation = (loc) => {
+    setMockData((prevData) => ({
+      ...prevData,
+      location: loc, 
+    }));
+  };
   return (
     <div id='worldcard'>
       <div className='left'>
@@ -23,7 +32,7 @@ const WorldCard = ({ data }) => {
             <TravelInfo key={data.id} data={data} />
           ))}
         </div>
-        <Button width={'200px'} url={`/planning`} text={'일정만들기'}/>
+        <Button width={'200px'} url={`/planning`} text={'일정만들기'} onClick={() => handleLocation(data.title)}/>
       </div>
       <div className='right'>
         <div className='right__top'>

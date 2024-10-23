@@ -12,16 +12,12 @@ const Step2SelectTheme = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [selectedThemes, setSelectedThemes] = useState([]);
-
-  const handleThemeClick = (theme) => {
-    setSelectedThemes(prevSelected =>
-      prevSelected.includes(theme)
-        ? prevSelected.filter(t => t !== theme)
-        : [...prevSelected, theme]
-    );
+  const handleThemeClick = (selectedTheme) => {
+    setMockData((prevData) => ({
+      ...prevData,
+      theme: selectedTheme,  // 클릭한 테마를 mockData.theme에 설정
+    }));
   };
-
   return (
     <div id='step2'>
       <div className='step2__inner'>
@@ -34,7 +30,7 @@ const Step2SelectTheme = () => {
           <div className='step2__theme__item'>
             <ul>
               {theme.map((item, i) => (
-                <li key={i}>
+                <li key={i} onClick={() => handleThemeClick(item.theme)}>
                   <div><img src={item.img} alt="icon" /></div>
                   {item.theme}
                 </li>
