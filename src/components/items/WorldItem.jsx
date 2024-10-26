@@ -12,10 +12,8 @@ const WorldItem = ({ data, index }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    setTimeout(() => {
-      handleOpen(data.name); // 상태 업데이트를 비동기로 처리
-      dispatch(setLocation(data.name));
-    }, 0);
+    handleOpen(); 
+    dispatch(setLocation(data.name));
   };
 
   return (

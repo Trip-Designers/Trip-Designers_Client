@@ -29,7 +29,12 @@ const SelectWorld = forwardRef((props, ref) => {
     <div ref={ref} id={props.id} className='selectworld'>
       <div className='selectworld__input'>
         <IoIosSearch />
-        <input type="text" placeholder='어디로 여행을 떠나시나요?' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+        <input 
+          type="text" 
+          placeholder='어디로 여행을 떠나시나요?' 
+          value={searchTerm} 
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
       <div className='selectworld__search'>
         <Link to={'/'}>
