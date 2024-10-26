@@ -23,7 +23,7 @@ const Planning = () => {
         aria-describedby="select-date-range"
       >
         <div className='dateCalendar'>
-          <DateCalendar />
+          <DateCalendar onClick={closeModal} />
         </div>
       </Modal>
       <Map
