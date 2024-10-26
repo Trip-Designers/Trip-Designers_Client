@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// 리덕스
 import { setStartDate, setEndDate } from '../app/travleSlice';
 // utils
 import { getTimeDateArray } from '../utils/formatDate';
@@ -16,9 +17,11 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 const Step1DateSelection = ({ onNext }) => {
   const dispatch = useDispatch();
   const travel = useSelector((state) => state.travel);
+
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(!open);
 
+  // 날짜 입력받으면 모든 날짜를 배열로 저장
   const [timeDateArray, setTimeDateArray] = useState(getTimeDateArray(travel.startDate, travel.endDate));
   const [totalTime, setTotalTime] = useState(0);
 
@@ -88,7 +91,12 @@ const Step1DateSelection = ({ onNext }) => {
               <p className='dateManual'>여행 기간과 일정 시간을 시차를 고려해 현지시간으로 설정하세요.<br />기본 일정 시간은 <strong>오전 10시부터 오후 10시까지 총 12시간</strong>입니다.</p>
               <div className='time__container'>
                 {timeDateArray.map((data, i) => (
-                  <TimeSetting onNext={onNext} key={i} data={data} onTimeChange={(field, value) => handleTimeChange(i, field, value)} />
+                  <TimeSetting 
+                    onNext={onNext} 
+                    key={i} 
+                    data={data} 
+                    onTimeChange={(field, value) => handleTimeChange(i, field, value)} 
+                  />
                 ))}
               </div>
             </div>
