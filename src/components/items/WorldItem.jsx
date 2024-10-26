@@ -1,15 +1,20 @@
-import React, { useContext }  from 'react'
+import React, { useContext }  from 'react';
+import { useDispatch } from 'react-redux';
+import { ModalContext } from '../../pages/Home';
+// 리덕스
+import { setLocation } from '../../app/travleSlice';
 // 아이콘
 import { MdLocationOn } from "react-icons/md";
-// 컴포넌트
-import { ModalContext } from '../../pages/Home';
 
 const WorldItem = ({ data, index }) => {
   const { handleOpen } = useContext(ModalContext);
 
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     setTimeout(() => {
       handleOpen(data.name); // 상태 업데이트를 비동기로 처리
+      dispatch(setLocation(data.name));
     }, 0);
   };
 

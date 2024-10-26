@@ -1,4 +1,5 @@
-import React, { useContext} from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -8,13 +9,12 @@ import LinkSiteBtn from './LinkSiteBtn';
 import Button from './Button';
 //데이터
 import { travleInfoItems } from '../../mockData';
-import { ModalContext } from '../../pages/Home';
 import { useGetDestinationByNameQuery } from '../../app/apiSlice';
 
 const WorldCard = () => {
-  const { name } = useContext(ModalContext);
-  const { data, isLoading } = useGetDestinationByNameQuery(name);
-  console.log(name, data)
+  const location = useSelector((state) => state.travel.location);
+  const { data, isLoading } = useGetDestinationByNameQuery(location);
+
   // 로딩 상태 처리
   if (isLoading) {
     return <div>데이터 가져오는중...</div>;
@@ -25,8 +25,8 @@ const WorldCard = () => {
       <div className='left'>
         <div className='left__top'>
           <h3>JEJU</h3>
-          <h1>{data?.destinationName}</h1>
-          <div className='left__desc'>{data?.description}</div>
+          <h1>{data?.data?.destinationName}</h1>
+          <div className='left__desc'>{data?.data?.description}</div>
         </div>
         <div className='left__mid'>
           {travleInfoItems.map((data) => (
