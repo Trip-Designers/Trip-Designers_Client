@@ -23,10 +23,6 @@ export const DateCalendar = ({ onClick }) => {
     }
   ]);
 
-  const handleSubmit = () => {
-    onClick(); 
-  };
-
   const handleDateChange = (item) => {
     const { startDate, endDate } = item.selection;
     setState([item.selection]);
@@ -53,7 +49,7 @@ export const DateCalendar = ({ onClick }) => {
         direction="horizontal"
       />
       <div>
-        <Button onClick={handleSubmit} text={'완료'} />
+        <Button onClick={onClick} text={'완료'} />
       </div>
     </div>
   );
