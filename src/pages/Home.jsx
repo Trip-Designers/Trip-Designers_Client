@@ -9,21 +9,18 @@ export const ModalContext = createContext();
 
 const Home = () => {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState(null); 
 
   const handleOpen = (data) => {
-    setName(data); // 선택한 데이터를 상태로 설정
     setOpen(true); // 모달 열기
   };
 
   const handleClose = () => {
     setOpen(false);
-    setName(null); // 모달 닫을 때 선택한 데이터 초기화
   };
 
   return (
     <ModalContext.Provider 
-      value={{ open, handleOpen, handleClose, name }}
+      value={{ open, handleOpen, handleClose }}
     >
       <Main>
         <Modal
