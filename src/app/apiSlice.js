@@ -20,7 +20,7 @@ export const apiSlice = createApi({
     }),
     // /destination/{name} GET 요청
     getDestinationByName: builder.query({
-      query: (name) => `/destination/${name}`,
+      query: (name) => `/destination/detailed/${name}`,
     }),
     // /destination/detailed POST 요청
     addDetailedDestination: builder.mutation({
