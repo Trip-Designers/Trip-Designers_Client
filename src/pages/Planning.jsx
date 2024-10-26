@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Main from '../components/layout/Main';
-import DateRange from '../components/items/DateRange';
 import Modal from '@mui/material/Modal';
 import { Map } from 'react-kakao-maps-sdk';
+import { DateCalendar } from '../components/DateCalendar';
 
 const Planning = () => {
   const [open, setOpen] = useState(true);
@@ -18,11 +18,12 @@ const Planning = () => {
     <Main>
       <Modal
         open={open}
+        onClose={closeModal}
         aria-labelledby="date-range-modal"
         aria-describedby="select-date-range"
       >
-        <div>
-          <DateRange close={closeModal} />
+        <div className='dateCalendar'>
+          <DateCalendar />
         </div>
       </Modal>
       <Map
