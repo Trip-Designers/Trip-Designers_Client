@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+// 컴포넌트
 import Step1DateSelection from '../Step1DateSelection';
 import Step2SelectTheme from '../Step2SelectTheme';
-import { Link, useLocation } from 'react-router-dom';
 
 const Aside = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -14,6 +15,8 @@ const Aside = () => {
       setCurrentStep(prevStep => prevStep + 1);
     }
   };
+
+// aside 부분 모듈로 만들어서 페이지에 따라 다르게 렌더링하기
 
   return (
     <div id='aside'>
