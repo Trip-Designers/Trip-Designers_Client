@@ -6,20 +6,14 @@ import WorldItem from '../items/WorldItem';
 import { IoIosSearch } from "react-icons/io";
 //데이터
 import { useGetDestinationQuery } from '../../app/apiSlice';
-import { locationData } from '../../mockData';
 
 // forwardRef를 사용하여 ref 전달 가능하도록 설정
 const SelectWorld = forwardRef((props, ref) => {
   const [searchTerm, setSearchTerm] = useState(''); // 입력값을 저장하는 상태 추가
-  const { data, error, isLoading } = useGetDestinationQuery();
-  // 로딩 상태 처리
+  const { data, isLoading } = useGetDestinationQuery();
+  
   if (isLoading) {
     return <div>데이터 가져오는중...</div>;
-  }
-
-  // 에러 처리
-  if (error) {
-    return <div>데이터를 가져오는데 에러가 발생했습니다: {error.message}</div>;
   }
 
   // 입력값에 따라 데이터를 필터링
@@ -27,8 +21,7 @@ const SelectWorld = forwardRef((props, ref) => {
     const name = item.name.toLowerCase();
     const nation = item.nation.toLowerCase();
     const searchValue = searchTerm.toLowerCase();
-    
-    // name이나 nation에 검색어가 포함되어 있는지 확인 (숫자, 영어 혼합 가능)
+
     return name.includes(searchValue) || nation.includes(searchValue);
   });
 
