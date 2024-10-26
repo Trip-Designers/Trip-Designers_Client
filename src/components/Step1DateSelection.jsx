@@ -1,36 +1,40 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setStartDate, setEndDate } from '../app/travleSlice';
 // utils
 import { getTimeDateArray } from '../utils/formatDate';
 import { calculateTotalHours } from '../utils/formatTime';
 // 컴포넌트
-import { DateContext } from './layout/Main';
-import LinkSiteBtn from './items/LinkSiteBtn'
+import LinkSiteBtn from './items/LinkSiteBtn';
 import TimeSetting from './items/TimeSetting';
-import Button from '../components/items/Button'
+import Button from '../components/items/Button';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 const Step1DateSelection = ({ onNext }) => {
-  const { mockData, setMockData } = useContext(DateContext);
+  const dispatch = useDispatch();
+  const travel = useSelector((state) => state.travel);
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(!open);
-  // getTimeDateArray를 사용하여 timeDateArray 생성
-  const [timeDateArray, setTimeDateArray] = useState(getTimeDateArray(mockData.startDate, mockData.endDate));
+
+  const [timeDateArray, setTimeDateArray] = useState(getTimeDateArray(travel.startDate, travel.endDate));
   const [totalTime, setTotalTime] = useState(0);
 
   const handleDateChange = (field, value) => {
-    setMockData((prevData) => ({
-      ...prevData,
-      [field]: value, // 'startDate' 또는 'endDate' 업데이트
-    }));
-    setTimeDateArray(getTimeDateArray(mockData.startDate, mockData.endDate));
+    const isoDate = new Date(value).toLocaleDateString('sv-SE');
+    if (field === 'startDate') {
+      dispatch(setStartDate(isoDate));
+    } else if (field === 'endDate') {
+      dispatch(setEndDate(isoDate));
+    }
+    setTimeDateArray(getTimeDateArray(travel.startDate, travel.endDate));
   };
 
   useEffect(() => {
-    setTimeDateArray(getTimeDateArray(mockData.startDate, mockData.endDate));
-  }, [mockData.startDate, mockData.endDate]);
+    setTimeDateArray(getTimeDateArray(travel.startDate, travel.endDate));
+  }, [travel.startDate, travel.endDate]);
 
   useEffect(() => {
     setTotalTime(calculateTotalHours(timeDateArray));
@@ -41,15 +45,34 @@ const Step1DateSelection = ({ onNext }) => {
     updatedArray[index][field] = value;
     setTimeDateArray(updatedArray); 
   };
+
   return (
     <div id='step1'>
       <div className='step__top'>
-        <h1>{mockData.location}</h1>
+        <h1>{travel.location}</h1>
         <div className='step__info'>
-          <input type="date" value={mockData.startDate} onChange={(e) => handleDateChange('startDate', e.target.value)} /> - <input type="date" value={mockData.endDate} onChange={(e) => handleDateChange('endDate', e.target.value)} /> 
+          <input 
+            type="date" 
+            value={travel.startDate || ''} 
+            onChange={(e) => handleDateChange('startDate', e.target.value)} 
+          /> 
+          - 
+          <input 
+            type="date" 
+            value={travel.endDate || ''} 
+            onChange={(e) => handleDateChange('endDate', e.target.value)} 
+          /> 
           <div >
-            <LinkSiteBtn icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} url='https://www.skyscanner.co.kr/' css='btn'/>
-            <LinkSiteBtn icon={<FaBed size={20} />} site={'숙소'} url='https://kr.trip.com/?locale=ko-KR&curr=KRW' css='btn' /> 
+            <LinkSiteBtn 
+              icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} 
+              url='https://www.skyscanner.co.kr/' 
+              css='btn' 
+            />
+            <LinkSiteBtn 
+              icon={<FaBed size={20} />} 
+              site={'숙소'} 
+              url='https://kr.trip.com/?locale=ko-KR&curr=KRW' 
+              css='btn' /> 
           </div>
         </div>
       </div>
@@ -74,7 +97,7 @@ const Step1DateSelection = ({ onNext }) => {
         ) : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Step1DateSelection
+export default Step1DateSelection;
