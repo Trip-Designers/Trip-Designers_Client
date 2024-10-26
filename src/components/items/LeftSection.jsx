@@ -22,6 +22,7 @@ const LeftSection = () => {
       window.removeEventListener('click', handleWindowClick);
     };
   }, [isClick]);
+  
   return (
     <section className='home__left'>
       <h1>기존에 경험하지 못한<br />새로운 여행 플래너</h1>
