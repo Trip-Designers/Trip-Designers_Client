@@ -1,5 +1,4 @@
 import React, { useContext} from 'react'
-import { DateContext } from '../layout/Main';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -9,30 +8,32 @@ import LinkSiteBtn from './LinkSiteBtn';
 import Button from './Button';
 //데이터
 import { travleInfoItems } from '../../mockData';
+import { ModalContext } from '../../pages/Home';
+import { useGetDestinationByNameQuery } from '../../app/apiSlice';
 
-const WorldCard = ({ data }) => {
-  const { setMockData } = useContext(DateContext);
+const WorldCard = () => {
+  const { name } = useContext(ModalContext);
+  const { data, isLoading } = useGetDestinationByNameQuery(name);
+  console.log(name, data)
+  // 로딩 상태 처리
+  if (isLoading) {
+    return <div>데이터 가져오는중...</div>;
+  }
 
-  const handleLocation = (loc) => {
-    setMockData((prevData) => ({
-      ...prevData,
-      location: loc, 
-    }));
-  };
   return (
     <div id='worldcard'>
       <div className='left'>
         <div className='left__top'>
           <h3>JEJU</h3>
-          <h1>{data.title}</h1>
-          <div className='left__desc'>{data.desc}</div>
+          <h1>{data?.destinationName}</h1>
+          <div className='left__desc'>{data?.description}</div>
         </div>
         <div className='left__mid'>
           {travleInfoItems.map((data) => (
             <TravelInfo key={data.id} data={data} />
           ))}
         </div>
-        <Button width={'200px'} url={`/planning`} text={'일정만들기'} onClick={() => handleLocation(data.title)}/>
+        <Button width={'200px'} url={`/planning`} text={'일정만들기'} />
       </div>
       <div className='right'>
         <div className='right__top'>
