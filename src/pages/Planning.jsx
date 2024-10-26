@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { DateCalendar } from '../components/DateCalendar';
+import { Map } from 'react-kakao-maps-sdk';
+// 컴포넌트
 import Main from '../components/layout/Main';
 import Modal from '@mui/material/Modal';
-import { Map } from 'react-kakao-maps-sdk';
-import { DateCalendar } from '../components/DateCalendar';
 
 const Planning = () => {
   const [open, setOpen] = useState(true);
@@ -14,6 +15,7 @@ const Planning = () => {
     height: '100vh',
     zIndex: 10
   }
+  
   return (
     <Main>
       <Modal
