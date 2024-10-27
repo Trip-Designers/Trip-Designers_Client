@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  location: "",
+  destination: "",
   startDate: "",
   endDate: "",
-  theme: ""
+  theme: "",
+  data: null
 }
 
 const travelSlice = createSlice({
   name: 'travel',
   initialState,
   reducers: {
-    setLocation: (state, action) => {
-      state.location = action.payload;
+    setDestination: (state, action) => {
+      state.destination = action.payload;
     },
     setStartDate: (state, action) => {
       state.startDate = action.payload;
@@ -24,23 +25,26 @@ const travelSlice = createSlice({
       state.theme = action.payload;
     },
     setTravelInfo: (state, action) => {
-      const { location, startDate, endDate, theme } = action.payload;
-      state.location = location;
+      const { destination, startDate, endDate, theme } = action.payload;
+      state.destination = destination;
       state.startDate = startDate;
       state.endDate = endDate;
       state.theme = theme;
     },
     resetTravel: (state) => {
       // 초기 상태로 되돌리기
-      state.location = "";
+      state.destination = "";
       state.startDate = "";
       state.endDate = "";
       state.theme = "";
+    },
+    setData: (state, action) => {
+      state.data = action.payload;
     }
   }
 });
 
-export const { setLocation, setStartDate, setEndDate, setTheme, setTravelInfo, resetTravel } = travelSlice.actions;
+export const { setDestination, setStartDate, setEndDate, setTheme, setTravelInfo, resetTravel, setData } = travelSlice.actions;
 
 // 리듀서 내보내기
 export default travelSlice.reducer;
