@@ -80,8 +80,9 @@
 }
 
 #route {
+  margin-bottom: 20px;
   .route__inner {
-    width: 250px;
+    width: 100%;
     position: relative;
 
     .route__top {
@@ -96,6 +97,7 @@
         border-radius: 50%;
         color: white;
         background-color: rgb(235, 83, 37);
+        padding-bottom: 1px;
       }
 
       .route__time {
@@ -105,15 +107,27 @@
 
     .route__middle {
       display: flex;
-      padding: 0 20px;
-      height: 59px;
+      padding: 10px 20px;
+      height: 60px;
 
       .route__desc {
         flex: 1;
+        font-size: 1.1rem;
         div {
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
+        }
+
+        .desc {
+          width: 260px;
+          height: 40px;
+          font-size: 0.9rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
       }
 
@@ -143,7 +157,7 @@
       left: 8px;
       top: 19px;
       width: 1px;
-      height: 63px;
+      height: 70px;
       background-color: #b9b9b9;
     }
   }
