@@ -1,4 +1,6 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { resetTravel } from '../app/travleSlice';
 //컴포넌트
 import Main from '../components/layout/Main';
 import WorldCard from '../components/items/WorldCard';
@@ -8,6 +10,11 @@ import Modal from '@mui/material/Modal';
 export const ModalContext = createContext();
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(resetTravel());
+  }, [dispatch]);
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = (data) => {
