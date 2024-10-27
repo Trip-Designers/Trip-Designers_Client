@@ -1,29 +1,37 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import Route from './items/Route';
 import RouteSection from './RouteSection';
-
-const days = [
-  {
-    title: '1일차',
-  },
-  {
-    title: '2일차',
-  },
-  {
-    title: '3일차',
-  }
-]
+import { useSelector, useDispatch } from 'react-redux';
+import { setDay } from '../app/daySlice';
 
 const Aside2 = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const data = useSelector((state) => state.travel.data);
+  const dispatch = useDispatch();
+
+  const location = data.data.destination;
+  const schedule = data.data.schedule || [];
+
+  const days = [
+    { title: '전체 일정' }, 
+    ...schedule.map((_, index) => ({
+      title: `${index + 1}일차`,
+    }))
+  ];
 
   // 다음 단계로 이동
   const handleNextStep = () => {
-    if (currentStep < 2) {
+    if (currentStep < schedule.length) {
       setCurrentStep(prevStep => prevStep + 1);
+      dispatch(setDay(currentStep + 1));
     }
   };
+
+  const handleDayClick = (i) => {
+    setCurrentStep(i);
+    dispatch(setDay(i));  // 선택한 일자를 Redux에 저장
+  };
+  console.log(schedule)
   return (
     <div id="aside">
       {/* 사이드바 - 현재 단계 표시 */}
@@ -34,7 +42,13 @@ const Aside2 = () => {
         <div className='nav'>
           <ul>
             {days.map((day, i) => (
-              <li key={i} className={currentStep === i ? 'active' : ''} onClick={() => setCurrentStep(i)}>{day.title}</li>
+              <li 
+                key={i} 
+                className={currentStep === i ? 'active' : ''} 
+                onClick={() => handleDayClick(i)}
+              >
+                {day.title}
+              </li>
             ))}
           </ul>
           <button onClick={handleNextStep}>다음</button>
@@ -43,7 +57,13 @@ const Aside2 = () => {
 
       {/* 각 단계별 컨텐츠 */}
       <div className="aside__info">
-        <RouteSection />
+        {
+          currentStep === 0 ? (
+            <div>전체일정</div>
+          ) : (
+            <RouteSection schedule={schedule[currentStep - 1]} location={location} index={currentStep} />
+          )
+        }
       </div>
     </div>
   )
