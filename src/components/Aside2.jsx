@@ -1,5 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Route from './items/Route';
+import RouteSection from './RouteSection';
+
+const days = [
+  {
+    title: '1일차',
+  },
+  {
+    title: '2일차',
+  },
+  {
+    title: '3일차',
+  }
+]
 
 const Aside2 = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,8 +33,9 @@ const Aside2 = () => {
         </Link>
         <div className='nav'>
           <ul>
-            <li className={currentStep === 1 ? 'active' : ''}>1일차</li>
-            <li className={currentStep === 2 ? 'active' : ''}>2일차</li>
+            {days.map((day, i) => (
+              <li key={i} className={currentStep === i ? 'active' : ''} onClick={() => setCurrentStep(i)}>{day.title}</li>
+            ))}
           </ul>
           <button onClick={handleNextStep}>다음</button>
         </div>
@@ -28,12 +43,7 @@ const Aside2 = () => {
 
       {/* 각 단계별 컨텐츠 */}
       <div className="aside__info">
-        {currentStep === 1 && (
-          <div>123</div>
-        )}
-        {currentStep === 2 && (
-          <div>456</div>
-        )}
+        <RouteSection />
       </div>
     </div>
   )

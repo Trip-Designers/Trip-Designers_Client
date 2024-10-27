@@ -22,8 +22,8 @@ const Aside1 = () => {
         </Link>
         <div className='nav'>
           <ul>
-            <li className={currentStep === 1 ? 'active' : ''}>Step 1<br /> 날짜 확인</li>
-            <li className={currentStep === 2 ? 'active' : ''}>Step 2<br /> 테마 선택</li>
+            <li className={currentStep === 1 ? 'active' : ''}  onClick={() => setCurrentStep(1)}>Step 1<br /> 날짜 확인</li>
+            <li className={currentStep === 2 ? 'active' : ''}  onClick={() => setCurrentStep(2)}>Step 2<br /> 테마 선택</li>
           </ul>
           <button onClick={handleNextStep}>다음</button>
         </div>
