@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { DateCalendar } from '../components/DateCalendar';
-import { Map } from 'react-kakao-maps-sdk';
-// 컴포넌트
+import { Map } from 'react-kakao-maps-sdk'; 
 import Main from '../components/layout/Main';
 import Modal from '@mui/material/Modal';
 
@@ -29,13 +28,18 @@ const Planning = () => {
         </div>
       </Modal>
       <Map
-        center={{ lat: 33.5563, lng: 126.79581 }}
+        center={{ lat: 37.569068, lng: 126.975562 }}
         style={mapStyles}
-        level={9}
+        level={10}
       >
+        {/* 마커 추가 */}
+        {/* <MapMarker 
+          position={{ lat: 37.569068, lng: 126.975562 }} // 마커 위치 설정
+        >
+        </MapMarker> */}
       </Map>
     </Main>
   )
 }
 
-export default Planning
+export default Planning;
