@@ -29,7 +29,20 @@ export const apiSlice = createApi({
         method: 'POST',
         body: detailedDestination
       })
-    })
+    }),
+    getItinerary: builder.mutation({
+      query: ({destination, startDate, endDate, theme}) => ({
+        url: `/trip`,
+        method: 'POST',
+        body: {
+          destination,
+          startDate,
+          endDate,
+          theme
+        },
+      }),
+      transformErrorResponse: (response) => response.data,
+    }),
   })
 })
 
@@ -38,4 +51,5 @@ export const {
   useAddDestinationMutation,
   useGetDestinationByNameQuery,
   useAddDetailedDestinationMutation,
+  useGetItineraryMutation
 } = apiSlice;
