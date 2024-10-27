@@ -17,7 +17,7 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 const Step1DateSelection = ({ onNext }) => {
   const dispatch = useDispatch();
   const travel = useSelector((state) => state.travel);
-
+  
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(!open);
 
@@ -52,7 +52,7 @@ const Step1DateSelection = ({ onNext }) => {
   return (
     <div id='step1'>
       <div className='step__top'>
-        <h1>{travel.location}</h1>
+        <h1>{travel.destination}</h1>
         <div className='step__info'>
           <input 
             type="date" 
