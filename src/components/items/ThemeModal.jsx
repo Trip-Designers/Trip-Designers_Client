@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 const ThemeModal = ({close}) => {
   const [email, setEmail] = useState('');
   const [theme, setTheme] = useState('');
-
+  console.log('theme', theme);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleThemeChange = (e) => setTheme(e.target.value);
 
