@@ -2,7 +2,7 @@ import React, { useContext }  from 'react';
 import { useDispatch } from 'react-redux';
 import { ModalContext } from '../../pages/Home';
 // 리덕스
-import { setLocation } from '../../app/travleSlice';
+import { setDestination } from '../../app/travleSlice';
 // 아이콘
 import { MdLocationOn } from "react-icons/md";
 
@@ -13,7 +13,7 @@ const WorldItem = ({ data, index }) => {
 
   const handleClick = () => {
     handleOpen(); 
-    dispatch(setLocation(data.name));
+    dispatch(setDestination(data.name));
   };
 
   return (

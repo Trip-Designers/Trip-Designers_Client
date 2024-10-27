@@ -12,8 +12,8 @@ import { travleInfoItems } from '../../mockData';
 import { useGetDestinationByNameQuery } from '../../app/apiSlice';
 
 const WorldCard = () => {
-  const location = useSelector((state) => state.travel.location);
-  const { data, isLoading } = useGetDestinationByNameQuery(location);
+  const travel = useSelector((state) => state.travel.destination);
+  const { data, isLoading } = useGetDestinationByNameQuery(travel);
 
   // 로딩 상태 처리
   if (isLoading) {
