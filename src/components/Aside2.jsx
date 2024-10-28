@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RouteSection from './RouteSection';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,8 +9,15 @@ const Aside2 = () => {
   const data = useSelector((state) => state.travel.data);
   const dispatch = useDispatch();
 
-  const location = data.data.destination;
-  const schedule = data.data.schedule || [];
+  const location = data?.data?.destination;
+  const schedule = data?.data?.schedule || [];
+
+  // Save data to localStorage whenever 'data' changes
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem('travelData', JSON.stringify(data));
+    }
+  }, [data]);
 
   const days = [
     { title: '전체 일정' }, 
@@ -19,7 +26,7 @@ const Aside2 = () => {
     }))
   ];
 
-  // 다음 단계로 이동
+  // Next step navigation
   const handleNextStep = () => {
     if (currentStep < schedule.length) {
       setCurrentStep(prevStep => prevStep + 1);
@@ -29,12 +36,12 @@ const Aside2 = () => {
 
   const handleDayClick = (i) => {
     setCurrentStep(i);
-    dispatch(setDay(i));  // 선택한 일자를 Redux에 저장
+    dispatch(setDay(i));  // Store the selected day in Redux
   };
-  console.log(schedule)
+
   return (
     <div id="aside">
-      {/* 사이드바 - 현재 단계 표시 */}
+      {/* Sidebar */}
       <aside className="aside__nav">
         <Link to={'/'} className='aside__img'>
           <img src="/img/Trip_Logo.png" alt="Logo" />
@@ -55,7 +62,7 @@ const Aside2 = () => {
         </div>
       </aside>
 
-      {/* 각 단계별 컨텐츠 */}
+      {/* Itinerary content */}
       <div className="aside__info">
         {
           currentStep === 0 ? (
@@ -66,7 +73,7 @@ const Aside2 = () => {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Aside2
+export default Aside2;

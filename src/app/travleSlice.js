@@ -5,7 +5,7 @@ const initialState = {
   startDate: "",
   endDate: "",
   theme: "",
-  data: null
+  data: JSON.parse(localStorage.getItem('travelData')) || null
 }
 
 const travelSlice = createSlice({
