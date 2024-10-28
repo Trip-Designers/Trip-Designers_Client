@@ -12,7 +12,6 @@ const Aside2 = () => {
   const location = data?.data?.destination;
   const schedule = data?.data?.schedule || [];
 
-  // Save data to localStorage whenever 'data' changes
   useEffect(() => {
     if (data) {
       localStorage.setItem('travelData', JSON.stringify(data));
@@ -26,7 +25,6 @@ const Aside2 = () => {
     }))
   ];
 
-  // Next step navigation
   const handleNextStep = () => {
     if (currentStep < schedule.length) {
       setCurrentStep(prevStep => prevStep + 1);
@@ -36,7 +34,7 @@ const Aside2 = () => {
 
   const handleDayClick = (i) => {
     setCurrentStep(i);
-    dispatch(setDay(i));  // Store the selected day in Redux
+    dispatch(setDay(i));  
   };
 
   return (
