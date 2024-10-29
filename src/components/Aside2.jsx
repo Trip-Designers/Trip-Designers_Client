@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RouteSection from './RouteSection';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDay } from '../app/daySlice';
+import AllRoute from './items/AllRoute';
 
 const Aside2 = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -64,7 +65,7 @@ const Aside2 = () => {
       <div className="aside__info">
         {
           currentStep === 0 ? (
-            <div>전체일정</div>
+            <AllRoute schedule={schedule} location={location} />
           ) : (
             <RouteSection schedule={schedule[currentStep - 1]} location={location} index={currentStep} />
           )
