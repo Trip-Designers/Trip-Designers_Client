@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setData, setTheme } from '../app/travleSlice';
 import { useGetItineraryMutation } from '../app/apiSlice';
+import { PulseLoader  } from "react-spinners"
+
 // 컴포넌트
 import Button from './items/Button';
 import Modal from '@mui/material/Modal';
@@ -43,7 +45,10 @@ const Step2SelectTheme = () => {
 };          
 
   if(isLoading) {
-    return <div>ai에게 요청하여 일정을 생성중입니다!</div>
+    return <div style={{position: 'absolute', left: '120px', top: '49%', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '10px', justifyContent: 'center', alignItems: 'center'}}>
+      <PulseLoader  color={'#14efe2'} />
+      <span>ai에게 요청하여 일정을 생성중입니다!</span>
+      </div>
   }
 
   return (
