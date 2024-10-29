@@ -29,6 +29,10 @@
     height: 13% !important;
   }
 
+  .alltop {
+    height: 8% !important;
+  }
+
   .step__bottom {
     height: 75%;
     .step__bottom__desc {
@@ -76,6 +80,15 @@
           }
         }
       }
+    }
+  }
+
+  .allroute {
+    height: 100%;
+    overflow-y: auto;
+    -ms-overflow-style:none;
+    &::-webkit-scrollbar{
+      display:none;
     }
   }
 }
