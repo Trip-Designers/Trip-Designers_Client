@@ -4,7 +4,7 @@ import Route from './Route'
 const AllRoute = ({ schedule, location }) => {
   return (
     <div id='step1'>
-      <div className='step__top top alltop'>
+      <div className='step__top alltop'>
         <h1>{location}</h1>
       </div>
       <div className='allroute'>
