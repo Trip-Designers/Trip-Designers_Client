@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 // 아이콘
 import { IoAirplaneSharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
-import TravelInfo from './TravelInfo';
 // 컴포넌트
+import TravelInfo from './TravelInfo';
 import LinkSiteBtn from './LinkSiteBtn';
 import Button from './Button';
 //데이터
@@ -12,13 +12,8 @@ import { travleInfoItems } from '../../mockData';
 import { useGetDestinationByNameQuery } from '../../app/apiSlice';
 
 const WorldCard = () => {
-  const travel = useSelector((state) => state.travel.destination);
-  const { data, isLoading } = useGetDestinationByNameQuery(travel);
-
-  // 로딩 상태 처리
-  if (isLoading) {
-    return <div>데이터 가져오는중...</div>;
-  }
+  const destination = useSelector((state) => state.travel.destination);
+  const { data } = useGetDestinationByNameQuery(destination);
 
   return (
     <div id='worldcard'>
