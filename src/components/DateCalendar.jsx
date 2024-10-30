@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // 라이브러리
 import { DateRangePicker } from 'react-date-range';
+import ko from 'date-fns/locale/ko';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 // 리덕스
@@ -51,6 +52,7 @@ export const DateCalendar = ({ onClick }) => {
         months={2}
         ranges={state}
         direction="horizontal"
+        locale={ko}
       />
       <div style={{borderRadius: '6px'}}>
         <Button onClick={onClick} text={'완료'} />
