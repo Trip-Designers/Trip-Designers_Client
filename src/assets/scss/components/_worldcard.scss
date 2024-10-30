@@ -3,10 +3,10 @@
   @include flex-center;
   width: 960px;
   min-width: 960px;
-  height: 400px;
+  height: 370px;
   padding: 20px;
   border-radius: 6px;
-  gap: 20px;
+  gap: 15px;
   background-color: #fff;
 
   .left {
@@ -22,7 +22,7 @@
       height: 165px;
 
       h3 {
-        color: #b9b9b9;
+        color: var(--black400);
         height: 28px;
       }
 
