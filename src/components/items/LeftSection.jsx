@@ -25,8 +25,8 @@ const LeftSection = () => {
   
   return (
     <section className='home__left'>
-      <h1>기존에 경험하지 못한<br />새로운 여행 플래너</h1>
-      <p>고민만 하던 여행 계획을 <span>Trip Designers</span>를 통해 몇 분 만에 스케줄링 해보세요.</p>
+      <h1>여행 테마와 일정 선택으로,<br />AI가 완벽한 여행을 준비합니다!</h1>
+      <p>여행 계획 세우기 귀찮을 땐 <span>Trip Designers</span>를 통해 몇 분 만에 스케줄링 해보세요.</p>
       {isClick ? (
         <SelectWorld ref={searchFieldRef} id="search-field" />
       ) : (
