@@ -32,7 +32,7 @@ const WorldCard = () => {
       </div>
       <div className='right'>
         <div className='right__top'>
-          <img src="/img/성산일출봉.jpg" alt="여행지" />
+          <img src={data?.data?.image ? data.data.image : "/img/noimg1.png"} alt="장소" />
         </div>
         <div className='right__bottom'>
           <LinkSiteBtn icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} url='https://www.skyscanner.co.kr/'/>
