@@ -18,7 +18,7 @@ const AllRoute = ({ schedule, location }) => {
       <div className='allroute'>
         {schedule.map((daySchedule, dayIndex) => (
           <div key={dayIndex}>
-            <h2 style={{marginBottom: "10px"}}>{dayIndex + 1}일차</h2>
+            <h2 style={{marginBottom: "10px", fontSize: '1.1rem', fontWeight: 'bold'}}>{dayIndex + 1}일차</h2>
             <div>
               {daySchedule.activities.map((activity, activityIndex) => (
                 <Route key={activityIndex} data={activity} index={activityIndex + 1} onClick={() => handlePosition(activity.name, [activity.location.x, activity.location.y])} />
