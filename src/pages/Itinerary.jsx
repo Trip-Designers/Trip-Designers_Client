@@ -8,6 +8,7 @@ const Itinerary = () => {
   const data = useSelector((state) => state.travel.data);
   const schedule = data.data.schedule || [];
   const day = useSelector((state) => state.day.day);
+  const position = useSelector((state) => state.position.position)
 
   // Define colors for markers and paths based on days
   const colorArray = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"]; 
@@ -31,7 +32,11 @@ const Itinerary = () => {
   return (
     <Main>
       <Map
-        center={{ lat: midpoint.lat, lng: midpoint.lng }}
+        center={
+          position[0] && position[1] 
+            ? { lat: position[0], lng: position[1] } 
+            : { lat: midpoint.lat, lng: midpoint.lng }
+        }
         style={mapStyles}
         level={8}
       >

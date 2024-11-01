@@ -2,9 +2,9 @@ import React from 'react'
 //아이콘
 import { FaCarRear } from "react-icons/fa6";
 
-const Route = ({ data, index }) => {
+const Route = ({ data, index, onClick }) => {
   return (
-    <div id='route'>
+    <div id='route' onClick={onClick}>
       <div className='route__inner'>
         <div className='route__top'>
           <div className='route__order'>{index}</div>
