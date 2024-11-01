@@ -106,18 +106,19 @@
 
       .step2__theme__item {
         margin-top: 20px;
-        height: 200px;
+        height: 220px;
         ul {
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-start;
           align-items: center;
-          gap: 25px;
-          padding: 2px 0;
+          gap: 20px;
 
           li {
-            padding: 3px 0;
-            width: 60px;
+            padding: 5px;
+            width: 65px;
+            height: 92px;
+            border-radius: 4px;
             text-align: center;
             font-weight: bold;
             overflow: hidden;
@@ -128,8 +129,7 @@
             }
 
             &.selected {
-              height: 79px;
-              border: 1px solid blue;  // 선택된 항목을 강조하는 스타일
+              border: 1px solid rgb(96, 168, 236);  // 선택된 항목을 강조하는 스타일
               background-color: lightblue;  // 배경색 변경
             }
           }
