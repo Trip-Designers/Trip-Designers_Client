@@ -15,7 +15,7 @@ const Route = ({ data, index, onClick }) => {
             <div>{data.name}</div>
             <div className='desc'>{data.description}</div>
           </div>
-          <div className='route__img'><img src={data.image ? data.image : "/img/noimg2.png"}  alt="장소" /></div>
+          {/* <div className='route__img'><img src={data.image ? data.image : "/img/noimg2.png"}  alt="장소" /></div> */}
         </div>
         {/* <div className='route__bottom'>
           <div style={{paddingTop: '4px', paddingLeft: '1px'}}>
