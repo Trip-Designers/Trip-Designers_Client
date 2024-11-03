@@ -15,6 +15,7 @@ const WorldCard = () => {
   const destination = useSelector((state) => state.travel.destination);
   const { data } = useGetDestinationByNameQuery(destination);
 
+  const imageUrl = data?.data?.image ? `data:image/jpeg;base64,${data.data.image}` : "/img/noimg1.png";
   return (
     <div id='worldcard'>
       <div className='left'>
@@ -32,7 +33,7 @@ const WorldCard = () => {
       </div>
       <div className='right'>
         <div className='right__top'>
-          <img src={data?.data?.image ? data.data.image : "/img/noimg1.png"} alt="장소" />
+          <img src={data?.data?.image ? imageUrl : "/img/noimg1.png"} alt="장소" />
         </div>
         <div className='right__bottom'>
           <LinkSiteBtn icon={<IoAirplaneSharp size={20} className='icon' />} site={'항공권'} url='https://www.skyscanner.co.kr/'/>
