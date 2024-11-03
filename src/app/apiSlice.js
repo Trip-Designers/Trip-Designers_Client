@@ -21,6 +21,12 @@ export const apiSlice = createApi({
     // /destination/{name} GET 요청
     getDestinationByName: builder.query({
       query: (name) => `/destination/detailed/${name}`,
+      transformResponse: (response) => {
+        if(response.image) {
+          response.imageUrl = `data:image/jpeg;base64,${response.image}`;
+        }
+        return response;
+      }
     }),
     // /destination/detailed POST 요청
     addDetailedDestination: builder.mutation({
